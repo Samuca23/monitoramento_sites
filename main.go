@@ -7,11 +7,12 @@ import (
 )
 
 func main() {
-	exibeIntroducao()
+	for {
+		exibeIntroducao()
+		comando := leComando()
+		validaComando(comando)
+	}
 
-	comando := leComando()
-
-	validaComando(comando)
 }
 
 func exibeIntroducao() {
