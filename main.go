@@ -50,7 +50,18 @@ func validaComando(comando int) {
 
 func iniciarMonitoramento() {
 	fmt.Printf("Monitorando...")
-	site := "https://www.alura.com.br"
+	sites := []string{"https://www.alura.com.br", "https://www.unidavi.com.br"}
+
+	for i := 0; i < 5; i++ {
+		for i, site := range sites {
+			fmt.Println("Testando site", i, ":", site)
+			testaSite(site)
+		}
+	}
+
+}
+
+func testaSite(site string) {
 	resp, _ := http.Get(site)
 
 	if resp.StatusCode == 200 {
@@ -58,7 +69,6 @@ func iniciarMonitoramento() {
 	} else {
 		fmt.Println("Site:", site, "esta com problemas. Status Code:", resp.StatusCode)
 	}
-
 }
 
 func sair() {
